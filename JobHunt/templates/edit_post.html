@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Edit Job Post - Job Hunt</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h1>Edit Job Post</h1>
+
+        <!-- Form to edit job post -->
+        <form action="{{ url_for('edit_post', post_id=job.id) }}" method="post" class="job-form">
+            <div class="form-group">
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" value="{{ job.job_title }}" required>
+            </div>
+            <div class="form-group">
+                <label for="company_name">Company Name:</label>
+                <input type="text" id="company_name" name="company_name" value="{{ job.company_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="{{ job.address }}" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" value="{{ job.phone_number }}" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="pay_range">Pay Range:</label>
+                <input type="text" id="pay_range" name="pay_range" value="{{ job.pay_range }}" required>
+            </div>
+            <div class="form-group">
+                <label for="job_description">Job Description:</label>
+                <textarea id="job_description" name="job_description" required>{{ job.job_description }}</textarea>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

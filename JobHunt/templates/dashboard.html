@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">   
+    <title>Dashboard - Job Hunt</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h1>Dashboard</h1>
+
+        <!-- List of jobs posted by the recruiter -->
+        <div class="job-list">
+            {% for job in jobs %}
+            <div class="job-post">
+                <div class="job-details">
+                    <div class="left-column">
+                        <h3>{{ job.company_name }}</h3>
+                        <p><strong>Job Title:</strong> {{ job.job_title }}</p>
+                        <p><strong>Address:</strong> {{ job.address }}</p>
+                    </div>
+                    <div class="right-column">
+                        <p><strong>Pay Range:</strong> {{ job.pay_range }}</p>
+                    </div>
+                </div>
+                <div class="job-actions">
+                    <button onclick="toggleModal('modal{{ job.id }}')">Know More >></button>
+                </div>
+                <!-- Modal -->
+                <div id="modal{{ job.id }}" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close" onclick="toggleModal('modal{{ job.id }}')">&times;</span>
+                        <h2>{{ job.company_name }}</h2>
+                        <p><strong>Job Title:</strong> {{ job.job_title }}</p>
+                        <p><strong>Address:</strong> {{ job.address }}</p>
+                        <p><strong>Phone Number:</strong> {{ job.phone_number }}</p>
+                        <p><strong>Pay Range:</strong> {{ job.pay_range }}</p>
+                        <p><strong>Job Description:</strong></p>
+                        <p>{{ job.job_description }}</p>
+                        <!-- Add more details as needed -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(id) {
+            var modal = document.getElementById(id);
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            
+            // Toggle body class to apply blur effect
+            document.body.classList.toggle('modal-open');
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>About - Job Hunt</title>
+    <style>
+        body {
+            font-size: 20px; 
+            line-height: 1.6; 
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .text-content {
+            flex: 1;
+            padding: 20px;
+            text-align: center; 
+        }
+        .image-content {
+            max-width: 50%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-img {
+            max-width: 60%;
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+        .job-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+        .profile-img {
+            border-radius: 50%;
+        }
+        .icon {
+            max-width: 40px;
+            margin: 0 10px;
+            vertical-align: middle; 
+        }
+        .icon img {
+            max-width: 100%;
+            height: auto;
+        }
+        .contact-links {
+            text-align: center;
+            margin-top: 15px; 
+        }
+        .contact-links a {
+            display: inline-block; 
+            margin: 0 15px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <div class="section">
+            <div class="text-content">
+                <h1>About Us</h1>
+                <p>Welcome to Job Hunt, your ultimate destination for finding the perfect job. Our platform is designed to connect job seekers with potential employers seamlessly. We understand the challenges of job searching and aim to simplify the process by providing a user-friendly interface and comprehensive job listings. Whether you are a fresh graduate looking for your first job or an experienced professional seeking new opportunities, Job Hunt has something for everyone.</p>
+            </div>
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='images/job.jpg') }}" alt="Job Image" class="job-img">
+            </div>
+        </div>
+        <div class="section">
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='images/Photo.jpg') }}" alt="Madhavi Palutla" class="profile-img">
+            </div>
+            <div class="text-content">
+                <h2>About the Creator</h2>
+                <div class="contact-links">
+                    <a href="mailto:palutlamadhavi@gmail.com"><img src="{{ url_for('static', filename='images/mail.png') }}" alt="Email" class="icon"></a>
+                    <a href="https://github.com/madhu-1408" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub" class="icon"></a>
+                    <a href="https://linkedin.com/in/madhavi-palutla/" target="_blank"><img src="{{ url_for('static', filename='images/link.png') }}" alt="LinkedIn" class="icon"></a>
+                </div>
+                <p>Myself Madhavi Palutla, a computer science professional with a Master of Science in Computer Science from The University of Texas at Arlington and a Bachelor of Technology in Computer Science and Engineering from Gitam University. With expertise in programming, machine learning, and web development, I created Job Hunt to bridge the gap between job seekers and employers, providing a reliable platform for job searching and recruitment.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

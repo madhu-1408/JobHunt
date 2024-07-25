@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Home - Job Hunt</title>
+    <style>
+        
+       
+
+        .container {
+            display: flex;
+            min-height: 80vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .image-content img {
+            max-width: 370px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .text-content {
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+        <div class="container">
+            <div class="text-content">
+                <h1>Welcome to The Job Hunt.</h1>
+                <h1>You are a...</h1>
+                <div class="button-group">
+                    <a href="{{ url_for('dashboard') }}"><button>Job Seeker</button></a>
+                    <a href="{{ url_for('post') }}"><button>Recruiter</button></a>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='images/index.jpg') }}" alt="Welcome Image">
+            </div>
+        </div>
+
+</body>
+</html>
